@@ -14,9 +14,8 @@ public class CitaMedicaAplicacion implements CommandLineRunner {
     public static void main(String[] args){
         SpringApplication.run(CitaMedicaAplicacion.class, args);
     }
-    @Autowired
-    private UsuarioRepositorio repositorio;
-
+    //@Autowired
+    //private UsuarioRepositorio repositorio;
 
     public void run(String... args) throws Exception {
 /*

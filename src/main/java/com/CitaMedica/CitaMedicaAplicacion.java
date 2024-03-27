@@ -1,7 +1,5 @@
 package com.CitaMedica;
 
-import com.CitaMedica.Entidad.Usuarios.Medico;
-import com.CitaMedica.Entidad.Usuarios.Usuario;
 import com.CitaMedica.Repositorio.UsuarioRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -14,8 +12,8 @@ public class CitaMedicaAplicacion implements CommandLineRunner {
     public static void main(String[] args){
         SpringApplication.run(CitaMedicaAplicacion.class, args);
     }
-    //@Autowired
-    //private UsuarioRepositorio repositorio;
+    @Autowired
+    private UsuarioRepositorio repositorio;
 
     public void run(String... args) throws Exception {
 /*

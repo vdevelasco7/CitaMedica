@@ -1,9 +1,12 @@
 package com.CitaMedica.Entidad.Citas;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.Date;
-
+@Setter
+@Getter
 @Entity
 public class Cita {
 
@@ -16,27 +19,4 @@ public class Cita {
     private int attribute;
 
 
-    public String getMotivoCita() {
-        return this.motivoCita;
-    }
-
-    public void setMotivoCita(String motivoCita) {
-        this.motivoCita = motivoCita;
-    }
-
-    public int getAttribute() {
-        return this.attribute;
-    }
-
-    public void setAttribute(int attribute) {
-        this.attribute = attribute;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Long getId() {
-        return id;
-    }
 }

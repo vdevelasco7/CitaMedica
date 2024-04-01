@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-
 @RestController
 @RequestMapping("/usuarios")
 public class UsuarioControlador {
@@ -16,11 +15,16 @@ public class UsuarioControlador {
     private UsuarioServicio servicio;
 
     @GetMapping("/")
+    public String home() {
+        return "index"; // aquí "index" es el nombre de tu vista para la página de inicio
+    }
+
+    @GetMapping
     public List<Usuario> listaUsuarios() {
         return servicio.listaTodosUsuarios();
     }
 
-    @PostMapping("/")
+    @PostMapping
     public Usuario guardarUsuario(@RequestBody Usuario usuario){
         return servicio.guardarUsuario(usuario);
     }

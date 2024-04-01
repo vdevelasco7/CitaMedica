@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 import java.util.Date;
 
 @Entity
-public class CitaPrueba {
+public class Prueba {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

@@ -13,15 +13,4 @@ public class UsuarioDTO {
     private String usuario;
     private String clave;
 
-    public UsuarioDTO() {
-    }
-
-    public UsuarioDTO(Long id, String nombre, String apellidos, String usuario, String clave) {
-        this.id = id;
-        this.nombre = nombre;
-        this.apellidos = apellidos;
-        this.usuario = usuario;
-        this.clave = clave;
-    }
-
 }

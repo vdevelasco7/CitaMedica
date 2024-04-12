@@ -1,12 +1,13 @@
 package com.CitaMedica.Controlador;
 
-import com.CitaMedica.Entidad.Usuarios.Usuario;
+import com.CitaMedica.DTO.UsuarioDTO;
 import com.CitaMedica.Servicio.UsuarioServicio;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
@@ -22,25 +23,28 @@ public class UsuarioControlador {
     }
 
     @GetMapping
-    public List<Usuario> listaUsuarios() {
+    public List<UsuarioDTO> listaUsuarios() {
         return servicio.listaTodosUsuarios();
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<UsuarioDTO> obtenerUsuarioPorID(@PathVariable Long id) {
+        UsuarioDTO usuarioDTO = servicio.obtenerUsuarioPorID(id);
+        if (usuarioDTO != null) {
+            return new ResponseEntity<>(usuarioDTO, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
     @PostMapping
-    public Usuario guardarUsuario(@RequestBody Usuario usuario){
-        return servicio.guardarUsuario(usuario);
+    public UsuarioDTO guardarUsuario(@RequestBody UsuarioDTO usuarioDTO){
+        return servicio.guardarUsuario(usuarioDTO);
     }
 
     @PutMapping("/{id}")
-    public Usuario actualizarUsuario(@PathVariable Long id, @RequestBody Usuario usuario){
-        Usuario usuarioExistente = servicio.obtenerUsuarioPorID(id);
-        usuarioExistente.setId(id);
-        usuarioExistente.setNombre(usuario.getNombre());
-        usuarioExistente.setApellidos(usuario.getApellidos());
-        usuarioExistente.setUsuario(usuario.getUsuario());
-        usuarioExistente.setClave(usuario.getClave());
-
-        return servicio.actualizarUsuario(usuarioExistente);
+    public UsuarioDTO actualizarUsuario(@PathVariable Long id, @RequestBody UsuarioDTO usuarioDTO){
+        return servicio.actualizarUsuario(id, usuarioDTO);
     }
 
     @DeleteMapping("/{id}")

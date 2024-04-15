@@ -39,7 +39,7 @@ public class UsuarioServicioImplementacion implements UsuarioServicio {
 
     @Override
     public UsuarioDTO actualizarUsuario(Long id, UsuarioDTO usuarioDTO) {
-        Usuario usuarioExistente = repositorio.findById(id).orElse(null);
+        Usuario usuarioExistente = repositorio.findById(id).orElseThrow(ResourceNotFoundException::new);
         if (usuarioExistente != null) {
             BeanUtils.copyProperties(usuarioDTO, usuarioExistente, "id");
             Usuario usuarioActualizado = repositorio.save(usuarioExistente);
@@ -50,7 +50,8 @@ public class UsuarioServicioImplementacion implements UsuarioServicio {
 
     @Override
     public void eliminarUsuario(Long id) {
-        repositorio.deleteById(id);
+        Usuario usuario = repositorio.findById(id).orElseThrow(ResourceNotFoundException::new);
+        repositorio.delete(usuario);
     }
 
     private UsuarioDTO convertirAUsuarioDTO(Usuario usuario) {

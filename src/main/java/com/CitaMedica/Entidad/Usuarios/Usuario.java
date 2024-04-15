@@ -1,13 +1,17 @@
 package com.CitaMedica.Entidad.Usuarios;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Setter
 @Getter
 @Entity
 @Table(name = "Usuarios")
+@AllArgsConstructor
+@NoArgsConstructor
 public class Usuario {
 
     @Id
@@ -21,23 +25,5 @@ public class Usuario {
     private String usuario;
     @Column(name = "Clave", nullable = false, length = 50)
     private String clave;
-
-    public Usuario(){
-    }
-
-    public Usuario(Long id, String nombre, String apellidos, String usuario, String clave) {
-        this.id = id;
-        this.nombre = nombre;
-        this.apellidos = apellidos;
-        this.usuario = usuario;
-        this.clave = clave;
-    }
-
-    public Usuario(String nombre, String apellidos, String usuario, String clave) {
-        this.nombre = nombre;
-        this.apellidos = apellidos;
-        this.usuario = usuario;
-        this.clave = clave;
-    }
 
 }

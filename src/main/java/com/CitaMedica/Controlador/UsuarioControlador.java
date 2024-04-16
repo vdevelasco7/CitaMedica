@@ -5,6 +5,7 @@ import com.CitaMedica.Servicio.UsuarioServicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -38,12 +39,12 @@ public class UsuarioControlador {
     }
 
     @PostMapping
-    public UsuarioDTO guardarUsuario(@RequestBody UsuarioDTO usuarioDTO){
+    public UsuarioDTO guardarUsuario(@Validated @RequestBody UsuarioDTO usuarioDTO){
         return servicio.guardarUsuario(usuarioDTO);
     }
 
     @PutMapping("/{id}")
-    public UsuarioDTO actualizarUsuario(@PathVariable Long id, @RequestBody UsuarioDTO usuarioDTO){
+    public UsuarioDTO actualizarUsuario(@PathVariable Long id, @Validated @RequestBody UsuarioDTO usuarioDTO){
         return servicio.actualizarUsuario(id, usuarioDTO);
     }
 

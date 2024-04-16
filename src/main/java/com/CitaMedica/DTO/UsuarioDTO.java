@@ -1,5 +1,6 @@
 package com.CitaMedica.DTO;
 
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
@@ -7,13 +8,15 @@ import lombok.Setter;
 @Setter
 @Getter
 public class UsuarioDTO {
-    @NotNull
+
+    private long id;
+    @NotBlank(message = "El nombre es obligatorio")
     private String nombre;
-    @NotNull
+    @NotBlank(message = "Los apellidos son obligatorios")
     private String apellidos;
-    @NotNull
+    @NotBlank(message = "El usuario es obligatorio")
     private String usuario;
-    @NotNull
+    @NotBlank(message = "La clave es obligatoria")
     private String clave;
 
 }

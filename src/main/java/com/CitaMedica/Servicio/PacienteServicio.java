@@ -1,18 +1,17 @@
 package com.CitaMedica.Servicio;
 
-import com.CitaMedica.Entidad.Usuarios.Medico;
-import com.CitaMedica.Entidad.Usuarios.Paciente;
+import com.CitaMedica.DTO.PacienteDTO;
 
 import java.util.List;
 
 public interface PacienteServicio {
-    public List<Paciente> listaTodosPacientes();
+    public List<PacienteDTO> listaTodosPacientes();
 
-    public Paciente guardarPaciente(Paciente paciente);
+    public PacienteDTO guardarPaciente(PacienteDTO pacienteDTO);
 
-    public Paciente obtenerPacientePorID(Long id);
+    public PacienteDTO obtenerPacientePorID(Long id);
 
-    public Paciente actualizarPaciente(Paciente paciente);
+    public PacienteDTO actualizarPaciente(Long id, PacienteDTO pacienteDTO);
 
     public void eliminarPaciente(Long id);
 }

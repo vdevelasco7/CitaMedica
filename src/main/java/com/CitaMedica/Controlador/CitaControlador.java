@@ -35,7 +35,7 @@ public class CitaControlador {
         citaExistente.setId(id);
         citaExistente.setFechaHora(cita.getFechaHora());
         citaExistente.setMotivoCita(cita.getMotivoCita());
-        citaExistente.setAttribute(cita.getAttribute());
+        citaExistente.setAttribute11(cita.getAttribute11());
 
         return servicio.actualizarCita(citaExistente);
     }

@@ -13,16 +13,16 @@ public class CitaDTO {
     private Long id;
     private Date fechaHora;
     private String motivoCita;
-    private int attribute;
+    private int attribute11;
 
     public CitaDTO() {
     }
 
-    public CitaDTO(Long id, Date fechaHora, String motivoCita, int attribute) {
+    public CitaDTO(Long id, Date fechaHora, String motivoCita, int attribute11) {
         this.id = id;
         this.fechaHora = fechaHora;
         this.motivoCita = motivoCita;
-        this.attribute = attribute;
+        this.attribute11 = attribute11;
     }
 
 }

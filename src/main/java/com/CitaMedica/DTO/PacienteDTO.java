@@ -1,34 +1,20 @@
 package com.CitaMedica.DTO;
 
+import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
 import lombok.Setter;
 
 @Setter
 @Getter
-public class PacienteDTO {
+public class PacienteDTO extends UsuarioDTO{
 
-    // Getters y Setters
-    private Long id;
-    private String nombre;
-    private String apellidos;
-    private String usuario;
+    //@NotBlank(message = "El NSS es obligatorio")
     private String NSS;
+    //@NotBlank(message = "El número de tarjeta es obligatorio")
     private String numTarjeta;
+    //@NotBlank(message = "El telefono es obligatorio")
     private String telefono;
+    //@NotBlank(message = "La dirección es obligatoria")
     private String direccion;
-
-    public PacienteDTO() {
-    }
-
-    public PacienteDTO(Long id, String nombre, String apellidos, String usuario, String NSS, String numTarjeta, String telefono, String direccion) {
-        this.id = id;
-        this.nombre = nombre;
-        this.apellidos = apellidos;
-        this.usuario = usuario;
-        this.NSS = NSS;
-        this.numTarjeta = numTarjeta;
-        this.telefono = telefono;
-        this.direccion = direccion;
-    }
 
 }

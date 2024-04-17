@@ -1,9 +1,7 @@
 package com.CitaMedica.Entidad.Diagnosticos;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.CitaMedica.Entidad.Citas.Cita;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,6 +10,7 @@ import lombok.Setter;
 @Setter
 @Getter
 @Entity
+@Table(name = "Diagnosticos")
 @AllArgsConstructor
 @NoArgsConstructor
 public class Diagnostico {
@@ -19,8 +18,13 @@ public class Diagnostico {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    //@Column(name = "ValoracionEspecialista")
     private String valoracionEspecialista;
+    //@Column(name = "Enfermedad")
     private String enfermedad;
 
-
+    /*
+    @OneToOne(mappedBy = "diagnostico", cascade = CascadeType.ALL)
+    private Cita cita;
+     */
 }
